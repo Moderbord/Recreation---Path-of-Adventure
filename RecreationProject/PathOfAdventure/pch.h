@@ -11,4 +11,19 @@
 
 // TODO: add headers that you want to pre-compile here
 
+#include "GameWindow.h"
+#include "WindowTab.h"
+#include "EventHandler.h"
+#include "Event.h"
+#include <string>
+#include <iostream>
+
+namespace
+{
+	using std::cout;
+	using std::cin;
+	using std::endl;
+	using std::string;
+}
+
 #endif //PCH_H
