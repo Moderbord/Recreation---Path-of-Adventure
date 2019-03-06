@@ -15,26 +15,50 @@ void fun3()
 	cout << "fun 3";
 }
 
+void drake()
+{
+	cout << "You command dragon";
+}
+
+void drake2()
+{
+	cout << "You play dead";
+	//Clear callback
+	//Push new events
+}
+
 int main()
 {
 
 	// Initialization
     GameWindow game_window;
-	EventHandler event_handler;
+	game_window.print_tabs();
 
-	event_handler.bind_event_callback(fun1);
-	event_handler.bind_event_callback(fun2);
-	event_handler.bind_event_callback(fun1);
-	event_handler.bind_event_callback(fun3);
+	WindowTab* selected_tab = game_window.get_tab(GameWindow::MENU); // Start at main menu
+	
+	EventHandler* event_handler = selected_tab->get_event_handler();
 
-	WindowTab selected_tab;
-	WindowTab previous_tab;
+	Event test, test2;
+
+	test.set_event_text("Hellå jag är ett event");
+	test.add_function(fun1);
+	test.add_function(fun2);
+	test.add_function(fun3);
+
+
+	test2.set_event_text("Jag är ett annat event");
+	test2.add_function(drake);
+	test2.add_function(drake2);
+	event_handler->add_event(test2);
+
+	selected_tab->populate_events();
+
 	
 	bool running = true;
 	string user_input;
 
 
-
+	// TODO Separera event från main menu och skapa eventkedja
 
 	while (running)
 	{
@@ -48,20 +72,26 @@ int main()
 		{
 		case 'A':
 			selected_tab = game_window.get_tab(GameWindow::MENU);
-			event_handler.make_event_callback(0);
+			selected_tab->populate_events();
+			event_handler = selected_tab->get_event_handler();
 			break;
 		case 'B':
 			selected_tab = game_window.get_tab(GameWindow::CHARACTER);
-			event_handler.make_event_callback(1);
+			selected_tab->populate_events();
+			event_handler = selected_tab->get_event_handler();
 			break;
 		case 'C':
 			selected_tab = game_window.get_tab(GameWindow::INVENTORY);
-			event_handler.make_event_callback(2);
+			selected_tab->populate_events();
+			event_handler = selected_tab->get_event_handler();
 			break;
 		case 'D':
 			selected_tab = game_window.get_tab(GameWindow::STORY);
+			selected_tab->populate_events();
+			event_handler = selected_tab->get_event_handler();
 			break;
 		default:
+			event_handler->make_event_callback(user_input[0] - 49);
 			break;
 		}
 

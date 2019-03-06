@@ -3,13 +3,13 @@
 
 GameWindow::GameWindow()
 {
-	_window_tab[0] = WindowTab("Menu");
-	_window_tab[1] = WindowTab("Character");
-	_window_tab[2] = WindowTab("Inventory");
-	_window_tab[3] = WindowTab("Story");
+	_window_tab[0] = new WindowTab("Menu");
+	_window_tab[1] = new WindowTab("Character");
+	_window_tab[2] = new WindowTab("Inventory");
+	_window_tab[3] = new WindowTab("Story");
 }
 
-WindowTab GameWindow::get_tab(const int tab_number)
+WindowTab* GameWindow::get_tab(const int tab_number)
 {
 	switch (tab_number)
 	{
@@ -34,9 +34,9 @@ WindowTab GameWindow::get_tab(const int tab_number)
 void GameWindow::print_tabs()
 {
 	char i = 65;
-	for (WindowTab &tab : _window_tab)
+	for (WindowTab *tab : _window_tab)
 	{
-		cout << i << ". " << tab.get_name() << "\t\t";
+		cout << i << ". \b" << tab->get_name() << "\b\t\t";
 		i++;
 	}
 	cout << "\n\n";
@@ -44,5 +44,5 @@ void GameWindow::print_tabs()
 
 void GameWindow::clear()
 {
-	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	system("CLS");
 }

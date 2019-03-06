@@ -1,6 +1,16 @@
 #include "pch.h"
 
-void EventHandler::bind_event_callback(std::function<void()> event_callback)
+void EventHandler::add_event(Event event)
+{
+	this->_event_vector.push_back(event);
+}
+
+std::vector<Event> EventHandler::get_events()
+{
+	return this->_event_vector;
+}
+
+void EventHandler::bind_event_callback(std::function<void()> &event_callback)
 {
 	_event_callback_vector.push_back(std::bind(event_callback));
 }
