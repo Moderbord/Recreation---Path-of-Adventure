@@ -1,7 +1,7 @@
 #include "pch.h"
 
 // Adds an event to the event handler
-void EventHandler::add_event(Event &event)
+void EventHandler::add_event(const Event &event)
 {
 	this->_event_vector.push_back(event);
 }

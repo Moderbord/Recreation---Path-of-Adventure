@@ -1,32 +1,5 @@
 #include "pch.h"
 
-void fun1()
-{
-	cout << "fun 1";
-}
-
-void fun2()
-{
-	cout << "fun 2";
-}
-
-void fun3()
-{
-	cout << "fun 3";
-}
-
-void drake()
-{
-	cout << "You command dragon";
-}
-
-void drake2()
-{
-	cout << "You play dead";
-	//Clear callback
-	//Push new events
-}
-
 int main()
 {
 
@@ -38,19 +11,7 @@ int main()
 	
 	EventHandler* event_handler = selected_tab->get_event_handler();
 
-	Event test, test2;
-
-	test.set_event_text("Hellå jag är ett event");
-	test.add_function(fun1, "Skoj 1");
-	test.add_function(fun2, "Skoj 2");
-	test.add_function(fun3, "Skoj 3");
-
-
-	test2.set_event_text("Jag är ett annat event");
-	test2.add_function(drake, "Command");
-	test2.add_function(drake2, "Play dead");
-	event_handler->add_event(test);
-	event_handler->add_event(test2);
+	event_handler->add_event(EventList::event_test());
 
 	selected_tab->populate_events();
 

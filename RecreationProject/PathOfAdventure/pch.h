@@ -15,6 +15,7 @@
 #include "WindowTab.h"
 #include "EventHandler.h"
 #include "Event.h"
+#include "EventList.h"
 #include <string>
 #include <iostream>
 

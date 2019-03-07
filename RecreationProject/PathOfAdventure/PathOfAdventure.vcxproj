@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="EventList.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="WindowTab.h" />
@@ -160,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="EventList.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="PathOfAdventure.cpp" />
     <ClCompile Include="pch.cpp">
