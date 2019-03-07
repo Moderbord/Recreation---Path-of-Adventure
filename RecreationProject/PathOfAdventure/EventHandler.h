@@ -14,7 +14,7 @@ public:
 	EventHandler() = default;
 	~EventHandler() = default;
 
-	void add_event(Event event);
+	void add_event(Event &event);
 	std::vector<Event> get_events();
 	void bind_event_callback(std::function<void()> &event_callback);
 	void make_event_callback(int callback_index);

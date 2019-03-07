@@ -41,14 +41,15 @@ int main()
 	Event test, test2;
 
 	test.set_event_text("Hellå jag är ett event");
-	test.add_function(fun1);
-	test.add_function(fun2);
-	test.add_function(fun3);
+	test.add_function(fun1, "Skoj 1");
+	test.add_function(fun2, "Skoj 2");
+	test.add_function(fun3, "Skoj 3");
 
 
 	test2.set_event_text("Jag är ett annat event");
-	test2.add_function(drake);
-	test2.add_function(drake2);
+	test2.add_function(drake, "Command");
+	test2.add_function(drake2, "Play dead");
+	event_handler->add_event(test);
 	event_handler->add_event(test2);
 
 	selected_tab->populate_events();

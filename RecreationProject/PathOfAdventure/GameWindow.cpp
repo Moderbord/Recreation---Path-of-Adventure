@@ -1,6 +1,6 @@
 #include "pch.h"
 
-
+// Constructor
 GameWindow::GameWindow()
 {
 	_window_tab[0] = new WindowTab("Menu");
@@ -9,6 +9,7 @@ GameWindow::GameWindow()
 	_window_tab[3] = new WindowTab("Story");
 }
 
+// Returns game tab
 WindowTab* GameWindow::get_tab(const int tab_number)
 {
 	switch (tab_number)
@@ -31,6 +32,7 @@ WindowTab* GameWindow::get_tab(const int tab_number)
 	}
 }
 
+// Prints game tabs at the top of the console
 void GameWindow::print_tabs()
 {
 	char i = 65;
@@ -42,6 +44,7 @@ void GameWindow::print_tabs()
 	cout << "\n\n";
 }
 
+// Clears the console of previous text
 void GameWindow::clear()
 {
 	system("CLS");
