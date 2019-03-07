@@ -3,16 +3,18 @@
 #include <functional>
 #include <vector>
 
+class Event;
+
 class EventFunction
 {
 private:
 	std::string _function_text;
-	std::function<void()> _function;
+	std::function<Event()> _function;
 public:
 	EventFunction() = default;
-	EventFunction(std::function<void()> function, std::string function_text);
+	EventFunction(std::function<Event()> function, std::string function_text);
 	std::string get_function_text();
-	std::function<void()>& get_function();
+	std::function<Event()>& get_function();
 };
 
 class Event
@@ -26,7 +28,7 @@ public:
 	~Event() = default;
 
 	void set_event_text(std::string event_text);
-	void add_function(std::function<void()> function, std::string function_text);
+	void add_function(std::function<Event()> function, std::string function_text);
 	std::vector<EventFunction> get_event_functions();
 	void print_event(int &event_number);
 };

@@ -1,6 +1,6 @@
 #include "pch.h"
 
-EventFunction::EventFunction(std::function<void()> function, std::string function_text)
+EventFunction::EventFunction(std::function<Event()> function, std::string function_text)
 {
 	this->_function = function;
 	this->_function_text = function_text;
@@ -11,7 +11,7 @@ std::string EventFunction::get_function_text()
 	return this->_function_text;
 }
 
-std::function<void()>& EventFunction::get_function()
+std::function<Event()>& EventFunction::get_function()
 {
 	return this->_function;
 }
@@ -23,7 +23,7 @@ void Event::set_event_text(std::string event_text)
 }
 
 // Adds function to vector
-void Event::add_function(std::function<void()> function, std::string function_text)
+void Event::add_function(std::function<Event()> function, std::string function_text)
 {
 	this->_event_functions.emplace_back(EventFunction(function, function_text));
 }
